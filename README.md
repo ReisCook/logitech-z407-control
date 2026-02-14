@@ -1,50 +1,31 @@
-# Logitech Z407 Control Tool (Cross-Platform)
+# Logitech Z407 Control
 
-A simple Python tool to control Logitech Z407 speakers from macOS, Windows, or Linux. Designed to replace the functionality of a lost wireless dial.
+Python script to control Logitech Z407 speakers via Bluetooth LE. Replaces a lost wireless dial.
+Works on macOS, Windows, Linux. Requires Bluetooth capability.
 
-## Features
-- **Switch Inputs**: Toggle between Bluetooth, Aux (3.5mm), and USB.
-- **Volume Control**: Adjust the internal speaker volume (independent of PC volume).
-- **Pairing Mode**: Force the speakers into Bluetooth pairing mode.
-- **Factory Reset**: Reset the speakers to resolve connection issues.
-- **Cross-Platform**: Works on macOS, Windows 10+, and Linux.
-
-## Prerequisites
-- Bluetooth 4.0+ Adapter (Internal or USB Dongle)
-- Python 3.9+
-- `bleak` library
-
-## Installation
-1.  Open Terminal.
-2.  Install the required library:
-    ```bash
-    pip3 install -r requirements.txt
-    ```
-
-## Usage
-Run the script from your terminal:
+## Run
 ```bash
-python3 z407_control.py
+pip install bleak
+python z407_control.py
 ```
-Follow the on-screen prompts to select your desired action.
 
-### Menu Options
-1.  **Bluetooth Input**: Switch to Bluetooth source.
-2.  **Aux (3.5mm)**: Switch to the 3.5mm cable input.
-3.  **USB**: Switch to the Micro-USB input (**Recommended for PC**).
-4.  **Force Pairing Mode**: Make the speakers discoverable (fast blue blink).
-5.  **Volume Up**: Increase internal volume (prompts for number of steps).
-6.  **Volume Down**: Decrease internal volume.
-7.  **Factory Reset**: Reset speaker settings.
-8.  **Play/Pause**: Toggle mute/unmute or play/pause (useful if audio is silent).
+## Menu
+### Inputs
+*   **1** Bluetooth
+*   **2** Aux (3.5mm)
+*   **3** USB (Micro-USB)
 
-## Interpreting Output
-- **c103**: Switched to USB.
-- **c102**: Switched to Aux.
-- **c101**: Switched to Bluetooth.
-- **c200**: Enabled Pairing Mode.
+### Audio
+*   **5** Volume Up
+*   **6** Volume Down
+*   **8** Play/Pause (Toggle Mute)
 
-## Troubleshooting
-- **No Sound on USB**: ensure you are using a **Data** Micro-USB cable, not a "Charge Only" cable.
-- **"Bluetooth turned off"**: Enable Bluetooth on your Mac.
-- **Script finds nothing**: Unplug speakers from power for 10 seconds and retry.
+### System
+*   **4** Force Pairing Mode
+*   **7** Factory Reset
+
+## Response Codes
+*   `c101` Bluetooth Input
+*   `c102` Aux Input
+*   `c103` USB Input
+*   `c200` Pairing Mode
