@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+env/
+Logitech-Z407-Remote-Control-App/
+logi-z407-reverse-engineering/
