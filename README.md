@@ -1,16 +1,17 @@
-# Logitech Z407 Control Tool (macOS)
+# Logitech Z407 Control Tool (Cross-Platform)
 
-A simple Python tool to control Logitech Z407 speakers from macOS, specifically designed to replace the functionality of a lost wireless dial.
+A simple Python tool to control Logitech Z407 speakers from macOS, Windows, or Linux. Designed to replace the functionality of a lost wireless dial.
 
 ## Features
 - **Switch Inputs**: Toggle between Bluetooth, Aux (3.5mm), and USB.
 - **Volume Control**: Adjust the internal speaker volume (independent of PC volume).
 - **Pairing Mode**: Force the speakers into Bluetooth pairing mode.
 - **Factory Reset**: Reset the speakers to resolve connection issues.
+- **Cross-Platform**: Works on macOS, Windows 10+, and Linux.
 
 ## Prerequisites
-- macOS
-- Python 3
+- Bluetooth 4.0+ Adapter (Internal or USB Dongle)
+- Python 3.9+
 - `bleak` library
 
 ## Installation
