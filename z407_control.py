@@ -20,7 +20,10 @@ CMD_INPUT_USB = "8103"
 CMD_BT_PAIR = "8200"
 CMD_VOL_UP = "8002"
 CMD_VOL_DOWN = "8003"
+CMD_BASS_UP = "8000"
+CMD_BASS_DOWN = "8001"
 CMD_FACTORY_RESET = "8300"
+CMD_PLAY_PAUSE = "8004"
 
 async def send_command(client, command_hex):
     """Sends a command to the Z407 speaker."""
@@ -63,10 +66,12 @@ async def main():
     print("4. Force Bluetooth Pairing Mode")
     print("5. Volume Up (+)")
     print("6. Volume Down (-)")
-    print("7. Factory Reset (Fix Connection Issues)")
-    print("8. Play/Pause (Toggle Mute)")
+    print("7. Bass Up (+)")
+    print("8. Bass Down (-)")
+    print("9. Play/Pause (Toggle Mute)")
+    print("0. Factory Reset")
     
-    choice = input("Enter choice (1-8): ").strip()
+    choice = input("Enter choice (0-9): ").strip()
     
     command = None
     loop_count = 1
@@ -99,11 +104,25 @@ async def main():
             loop_count = 5
         print(f"Decreasing volume by {loop_count} steps...")
     elif choice == "7":
-        command = CMD_FACTORY_RESET
-        print("WARNING: Factory Resetting Speakers...")
+        command = CMD_BASS_UP
+        try:
+            loop_count = int(input("How many steps (default 1)? ") or "1")
+        except:
+            loop_count = 1
+        print(f"Increasing Bass by {loop_count} steps...")
     elif choice == "8":
+        command = CMD_BASS_DOWN
+        try:
+            loop_count = int(input("How many steps (default 1)? ") or "1")
+        except:
+            loop_count = 1
+        print(f"Decreasing Bass by {loop_count} steps...")
+    elif choice == "9":
         command = CMD_PLAY_PAUSE
         print("Toggling Play/Pause/Mute...")
+    elif choice == "0":
+        command = CMD_FACTORY_RESET
+        print("WARNING: Factory Resetting Speakers...")
     else:
         print("Invalid choice.")
         return
