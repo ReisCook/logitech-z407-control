@@ -18,14 +18,18 @@ python z407_control.py
 ### Audio
 *   **5** Volume Up
 *   **6** Volume Down
-*   **8** Play/Pause (Toggle Mute)
+*   **7** Bass Up
+*   **8** Bass Down
+*   **9** Play/Pause (Toggle Mute)
 
 ### System
 *   **4** Force Pairing Mode
-*   **7** Factory Reset
+*   **0** Factory Reset
 
 ## Response Codes
 *   `c101` Bluetooth Input
 *   `c102` Aux Input
 *   `c103` USB Input
 *   `c200` Pairing Mode
+*   `c000` Bass Up
+*   `c001` Bass Down
